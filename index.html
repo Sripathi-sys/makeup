@@ -1041,8 +1041,7 @@ src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
       document.querySelectorAll('.slot-count').forEach(function(el){el.textContent=slots});
     })();
 
-    // ── 2. INTERSECTION OBSERVER (replaces AOS ~511KB) ──
-    // Delay applied via --aos-delay CSS var on element
+    // ── 2. INTERSECTION OBSERVER ──
     (function(){
       if(!('IntersectionObserver' in window)) {
         document.querySelectorAll('.aos').forEach(function(el){el.classList.add('visible')});
@@ -1059,6 +1058,20 @@ src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
       },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
       document.querySelectorAll('.aos').forEach(function(el){ io.observe(el); });
     })();
+
+    // ── PHONE VALIDATOR (handles +91, 91, spaces, hyphens) ──
+    function isValidPhone(input) {
+      var number = input.replace(/[\s\-\.]/g, '');
+      if (number.startsWith('+91')) number = number.slice(3);
+      else if (number.startsWith('91') && number.length === 12) number = number.slice(2);
+      return /^[6-9]\d{9}$/.test(number);
+    }
+    function cleanPhone(input) {
+      var number = input.replace(/[\s\-\.]/g, '');
+      if (number.startsWith('+91')) number = number.slice(3);
+      else if (number.startsWith('91') && number.length === 12) number = number.slice(2);
+      return number;
+    }
 
     // ── 3. FORM LOGIC ──
     function showErr(id,show){
@@ -1083,7 +1096,7 @@ src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
       var email=document.getElementById('field-email').value.trim();
       var phone=document.getElementById('field-phone').value.trim();
       var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      var phoneOk=/^[6-9][0-9]{9}$/.test(phone);
+      var phoneOk=isValidPhone(phone);
       var nameOk=name.length>=2;
       showErr('err-name',!nameOk);
       showErr('err-email',!emailOk);
@@ -1092,11 +1105,11 @@ src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
       var btn=event.target.querySelector('button[type=submit]');
       btn.textContent='SUBMITTING...';
       btn.disabled=true;
-      submitToGoogleForms(name,email,phone);
+      submitToGoogleForms(name,email,cleanPhone(phone));
       showSuccess();
     }
 
-    // ── 4. GOOGLE FONTS ASYNC (loads after page paint — zero render blocking) ──
+    // ── 4. GOOGLE FONTS ASYNC ──
     window.addEventListener('load', function(){
       var l = document.createElement('link');
       l.rel='stylesheet';
@@ -1124,10 +1137,12 @@ document.getElementById("payBtn").onclick = function () {
         return;
     }
 
-    if(!/^[6-9][0-9]{9}$/.test(phone)){
-        alert("Enter valid phone number");
+    if(!isValidPhone(phone)){
+        alert("Enter a valid Indian mobile number (e.g. 9345898327 or +91 93458 98327)");
         return;
     }
+
+    var cleanedPhone = cleanPhone(phone);
 
     var options = {
         "key": "rzp_live_SurJv43tHdLZeq",
@@ -1136,20 +1151,16 @@ document.getElementById("payBtn").onclick = function () {
         "name": "PK Adstudio",
         "description": "Growth Audit Session",
         "handler": function (response) {
-
-            submitToGoogleForms(name,email,phone);
-
+            submitToGoogleForms(name, email, cleanedPhone);
             alert("Payment Successful");
-
             document.getElementById('form-content').classList.add('hidden');
             document.getElementById('form-success-message').classList.remove('hidden');
-
             console.log(response.razorpay_payment_id);
         },
         "prefill": {
             "name": name,
             "email": email,
-            "contact": phone
+            "contact": cleanedPhone
         },
         "theme": {
             "color": "#52A321"
