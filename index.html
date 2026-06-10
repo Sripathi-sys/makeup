@@ -887,11 +887,12 @@
             </p>
           </div>
 
-          <button type="submit"
-                  class="btn-green w-full px-4 py-3 text-sm font-black uppercase tracking-widest mt-4"
-                  style="border:none;cursor:pointer">
-            BOOK MY AUDIT SLOT NOW
-          </button>
+   <button type="button"
+        id="payBtn"
+        class="btn-green w-full px-4 py-3 text-sm font-black uppercase tracking-widest mt-4"
+        style="border:none;cursor:pointer">
+  PAY ₹499 & BOOK SLOT
+</button>
 
           <p class="text-center text-[10px] text-gray-500 font-semibold uppercase mt-2 tracking-wider">
             SSL Secure · Your data is safe and private
@@ -1084,5 +1085,61 @@
       document.head.appendChild(l);
     });
   </script>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+document.getElementById("payBtn").onclick = function () {
+
+    var name = document.getElementById('field-name').value.trim();
+    var email = document.getElementById('field-email').value.trim();
+    var phone = document.getElementById('field-phone').value.trim();
+
+    if(name.length < 2){
+        alert("Enter valid name");
+        return;
+    }
+
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        alert("Enter valid email");
+        return;
+    }
+
+    if(!/^[6-9][0-9]{9}$/.test(phone)){
+        alert("Enter valid phone number");
+        return;
+    }
+
+    var options = {
+        "key": "rzp_live_SurJv43tHdLZeq",
+        "amount": 49900,
+        "currency": "INR",
+        "name": "PK Adstudio",
+        "description": "Growth Audit Session",
+        "handler": function (response) {
+
+            submitToGoogleForms(name,email,phone);
+
+            alert("Payment Successful");
+
+            document.getElementById('form-content').classList.add('hidden');
+            document.getElementById('form-success-message').classList.remove('hidden');
+
+            console.log(response.razorpay_payment_id);
+        },
+        "prefill": {
+            "name": name,
+            "email": email,
+            "contact": phone
+        },
+        "theme": {
+            "color": "#52A321"
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+};
+</script>
 </body>
 </html>
