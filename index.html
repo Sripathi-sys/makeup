@@ -1150,13 +1150,10 @@ document.getElementById("payBtn").onclick = function () {
         "currency": "INR",
         "name": "PK Adstudio",
         "description": "Growth Audit Session",
-        "handler": function (response) {
-            submitToGoogleForms(name, email, cleanedPhone);
-            alert("Payment Successful");
-            document.getElementById('form-content').classList.add('hidden');
-            document.getElementById('form-success-message').classList.remove('hidden');
-            console.log(response.razorpay_payment_id);
-        },
+   "handler": function (response) {
+    submitToGoogleForms(name, email, cleanedPhone);
+    window.location.href = "thankyou.html?paid=true&pid=" + response.razorpay_payment_id;
+},
         "prefill": {
             "name": name,
             "email": email,

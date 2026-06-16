@@ -62,12 +62,16 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1534330604874384');
-    fbq('track', 'PageView');
+  fbq('init', '1534330604874384');
+fbq('track', 'PageView');
+
+var urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('paid') === 'true') {
     fbq('track', 'Purchase', {
         value: 499.00,
         currency: 'INR'
     });
+}
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
