@@ -1166,8 +1166,13 @@ document.getElementById("payBtn").onclick = function () {
             "color": "#52A321"
         }
     };
+var rzp = new Razorpay(options);
 
-    var rzp = new Razorpay(options);
+    fbq('track', 'InitiateCheckout', {
+        currency: 'INR',
+        value: 499
+    });
+
     rzp.open();
 };
 </script>
