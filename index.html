@@ -341,7 +341,9 @@
     @media(min-width:1024px){
       .container{max-width:1024px}
     }
-  </style>  <!-- Meta Pixel Code -->
+  </style> 
+
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -354,9 +356,9 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1534330604874384');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
-/></noscript>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1" />
+</noscript>
 <!-- End Meta Pixel Code -->
 
 </head>
@@ -1030,7 +1032,7 @@ src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
        No external scripts in <head>
        Google Fonts loaded async after paint
   ═══════════════════════════════════════════ -->
-  <script>
+<script>
     // ── 1. SLOT COUNT (inline, runs immediately) ──
     (function(){
       var d=new Date();
@@ -1099,7 +1101,20 @@ src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
       showErr('err-name',!nameOk);
       showErr('err-email',!emailOk);
       showErr('err-phone',!phoneOk);
+      
+      // If validation fails, stop execution here
       if(!nameOk||!emailOk||!phoneOk) return;
+      
+      // ── META PIXEL LEAD TRACKING ──
+      // This sends the conversion action back to the pixel setup in your head tags
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+          content_name: 'Growth Audit Registration',
+          value: 499.00,
+          currency: 'INR'
+        });
+      }
+
       var btn=event.target.querySelector('button[type=submit]');
       btn.textContent='SUBMITTING...';
       btn.disabled=true;
