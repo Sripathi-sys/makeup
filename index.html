@@ -1152,7 +1152,7 @@ document.getElementById("payBtn").onclick = function () {
         "description": "Growth Audit Session",
    "handler": function (response) {
     submitToGoogleForms(name, email, cleanedPhone);
-    window.location.href = "thankyou.html?paid=true&pid=" + response.razorpay_payment_id;
+   window.location.href = "thankyou.html#paid";
 },
         "prefill": {
             "name": name,

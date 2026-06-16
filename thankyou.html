@@ -66,8 +66,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1534330604874384');
 fbq('track', 'PageView');
 
-var urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('paid') === 'true') {
+if (window.location.hash === '#paid') {
     fbq('track', 'Purchase', {
         value: 499.00,
         currency: 'INR'
