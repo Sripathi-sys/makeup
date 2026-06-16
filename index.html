@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Growth Audit | Discover What's Stopping Your Makeup Business From Reaching ₹1.5 Lakhs/Month</title>
+  <meta name="description" content="Book your free 1-on-1 Growth Audit. Discover what's stopping your makeup business from reaching ₹1.5 Lakhs per month.">
+
+  <!-- =====================================================
+       PERFORMANCE STRATEGY:
+       1. No external CSS files — zero render-blocking stylesheets
+       2. No CDN Tailwind — replaced with hand-purged inline CSS (~8KB vs 124KB)
+       3. No AOS library — replaced with native IntersectionObserver (~0.3KB vs 511KB)
+       4. No FontAwesome CDN — replaced with inline SVG icons (~0KB vs 162KB)
+       5. Google Fonts loaded async via JS after page paint
+       6. font-display:swap on all font faces
+       Total blocking resource reduction: ~800KB → 0KB
+  ===================================================== -->
+
+  <style>
+    /* ── RESET & BASE ── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:#0A0A0C;color:#F3F4F6;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+    img,svg{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input{font-family:inherit}
+
+    /* ── TYPOGRAPHY ── */
+    .font-serif{font-family:'Playfair Display',Georgia,serif}
+    .font-sans{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif}
+
+    /* ── LAYOUT UTILITIES ── */
+    .container{width:100%;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+    .max-w-xl{max-width:36rem}
+    .max-w-2xl{max-width:42rem}
+    .max-w-3xl{max-width:48rem}
+    .max-w-4xl{max-width:56rem}
+    .max-w-md{max-width:28rem}
+    .mx-auto{margin-left:auto;margin-right:auto}
+    .text-center{text-align:center}
+    .text-left{text-align:left}
+    .relative{position:relative}
+    .absolute{position:absolute}
+    .inset-0{inset:0}
+    .overflow-hidden{overflow:hidden}
+    .overflow-x-hidden{overflow-x:hidden}
+    .z-0{z-index:0}
+    .z-20{z-index:20}
+    .z-50{z-index:50}
+    .w-full{width:100%}
+    .h-full{height:100%}
+    .block{display:block}
+    .inline-block{display:inline-block}
+    .flex{display:flex}
+    .grid{display:grid}
+    .hidden{display:none}
+    .shrink-0{flex-shrink:0}
+    .pointer-events-none{pointer-events:none}
+    .select-none{user-select:none}
+    .transition-all{transition:all .2s ease}
+    .transition-colors{transition:color .2s ease,border-color .2s ease,background-color .2s ease}
+    .gap-2{gap:.5rem}
+    .gap-3{gap:.75rem}
+    .gap-4{gap:1rem}
+    .gap-3\.5{gap:.875rem}
+    .space-y-3>*+*{margin-top:.75rem}
+    .space-y-3\.5>*+*{margin-top:.875rem}
+    .space-y-4>*+*{margin-top:1rem}
+    .space-y-5>*+*{margin-top:1.25rem}
+    .items-center{align-items:center}
+    .items-start{align-items:flex-start}
+    .items-end{align-items:flex-end}
+    .justify-center{justify-content:center}
+    .justify-between{justify-content:space-between}
+    .flex-col{flex-direction:column}
+    .flex-wrap{flex-wrap:wrap}
+    .px-1{padding-left:.25rem;padding-right:.25rem}
+    .px-3{padding-left:.75rem;padding-right:.75rem}
+    .px-4{padding-left:1rem;padding-right:1rem}
+    .px-5{padding-left:1.25rem;padding-right:1.25rem}
+    .px-6{padding-left:1.5rem;padding-right:1.5rem}
+    .py-2{padding-top:.5rem;padding-bottom:.5rem}
+    .py-2\.5{padding-top:.625rem;padding-bottom:.625rem}
+    .py-3{padding-top:.75rem;padding-bottom:.75rem}
+    .py-3\.5{padding-top:.875rem;padding-bottom:.875rem}
+    .py-4{padding-top:1rem;padding-bottom:1rem}
+    .py-8{padding-top:2rem;padding-bottom:2rem}
+    .py-10{padding-top:2.5rem;padding-bottom:2.5rem}
+    .py-12{padding-top:3rem;padding-bottom:3rem}
+    .py-16{padding-top:4rem;padding-bottom:4rem}
+    .pt-8{padding-top:2rem}
+    .pb-12{padding-bottom:3rem}
+    .pb-3{padding-bottom:.75rem}
+    .pb-4{padding-bottom:1rem}
+    .p-1{padding:.25rem}
+    .p-4{padding:1rem}
+    .p-5{padding:1.25rem}
+    .p-6{padding:1.5rem}
+    .p-3\.5{padding:.875rem}
+    .mb-1{margin-bottom:.25rem}
+    .mb-2{margin-bottom:.5rem}
+    .mb-2\.5{margin-bottom:.625rem}
+    .mb-3{margin-bottom:.75rem}
+    .mb-4{margin-bottom:1rem}
+    .mb-5{margin-bottom:1.25rem}
+    .mb-6{margin-bottom:1.5rem}
+    .mb-8{margin-bottom:2rem}
+    .mb-10{margin-bottom:2.5rem}
+    .mb-12{margin-bottom:3rem}
+    .mt-1{margin-top:.25rem}
+    .mt-2{margin-top:.5rem}
+    .mt-3{margin-top:.75rem}
+    .mt-6{margin-top:1.5rem}
+    .mt-8{margin-top:2rem}
+    .ml-2{margin-left:.5rem}
+    .mr-2{margin-right:.5rem}
+    .mr-2\.5{margin-right:.625rem}
+    .w-px{width:1px}
+    .w-1\.5{width:.375rem}
+    .h-1\.5{height:.375rem}
+    .w-2\.5{width:.625rem}
+    .h-2\.5{height:.625rem}
+    .w-10{width:2.5rem}
+    .h-10{height:2.5rem}
+    .min-w-10{min-width:2.5rem}
+    .w-28{width:7rem}
+    .h-28{height:7rem}
+    .rounded-sm{border-radius:.125rem}
+    .rounded{border-radius:.25rem}
+    .rounded-full{border-radius:9999px}
+    .rounded-xl{border-radius:.75rem}
+    .list-none{list-style:none}
+    .list-disc{list-style:disc}
+    .pl-5{padding-left:1.25rem}
+    .pl-1{padding-left:.25rem}
+    .leading-none{line-height:1}
+    .leading-tight{line-height:1.25}
+    .leading-snug{line-height:1.375}
+    .leading-relaxed{line-height:1.625}
+    .leading-\[1\.15\]{line-height:1.15}
+    .tracking-tight{letter-spacing:-.025em}
+    .tracking-wide{letter-spacing:.025em}
+    .tracking-wider{letter-spacing:.05em}
+    .tracking-widest{letter-spacing:.1em}
+    .uppercase{text-transform:uppercase}
+    .capitalize{text-transform:capitalize}
+    .line-through{text-decoration:line-through}
+    .border-b{border-bottom-width:1px;border-bottom-style:solid}
+    .border-t{border-top-width:1px;border-top-style:solid}
+    .border{border-width:1px;border-style:solid}
+    .border-2{border-width:2px;border-style:solid}
+    .border-3{border-width:3px;border-style:solid}
+    .border-dashed{border-style:dashed}
+    .shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.5),0 4px 6px -2px rgba(0,0,0,.4)}
+    .shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.7)}
+    .opacity-10{opacity:.1}
+    .opacity-50{opacity:.5}
+    .opacity-75{opacity:.75}
+
+    /* ── COLORS ── */
+    .bg-dark{background:#0A0A0C}
+    .bg-medium{background:#121216}
+    .bg-\[\#0A0A0C\]{background:#0A0A0C}
+    .bg-\[\#0F0F12\]{background:#0F0F12}
+    .bg-\[\#111115\]{background:#111115}
+    .bg-\[\#121216\]{background:#121216}
+    .bg-\[\#16161C\]{background:#16161C}
+    .bg-\[\#1C1212\]{background:#1C1212}
+    .bg-\[\#1F1212\]{background:#1F1212}
+    .bg-\[\#EAB308\]{background:#EAB308}
+    .bg-\[\#52A321\]{background:#52A321}
+    .bg-\[\#EF4444\]{background:#EF4444}
+    .text-white{color:#F3F4F6}
+    .text-black{color:#000}
+    .text-\[\#EAB308\]{color:#EAB308}
+    .text-\[\#52A321\]{color:#52A321}
+    .text-\[\#EF4444\]{color:#EF4444}
+    .text-\[\#FCA5A5\]{color:#FCA5A5}
+    .text-gray-200{color:#e5e7eb}
+    .text-gray-300{color:#d1d5db}
+    .text-gray-400{color:#9ca3af}
+    .text-gray-500{color:#6b7280}
+    .text-gray-600{color:#4b5563}
+    .border-\[\#24242D\]{border-color:#24242D}
+    .border-\[\#EAB308\]{border-color:#EAB308}
+    .border-\[\#52A321\]{border-color:#52A321}
+    .border-\[\#EF4444\]{border-color:#EF4444}
+    .border-yellow-500\/20{border-color:rgba(234,179,8,.2)}
+    .border-gray-800{border-color:#1f2937}
+
+    /* ── FONT SIZES ── */
+    .text-\[10px\]{font-size:10px}
+    .text-\[11px\]{font-size:11px}
+    .text-xs{font-size:.75rem;line-height:1rem}
+    .text-sm{font-size:.875rem;line-height:1.25rem}
+    .text-base{font-size:1rem;line-height:1.5rem}
+    .text-lg{font-size:1.125rem;line-height:1.75rem}
+    .text-xl{font-size:1.25rem;line-height:1.75rem}
+    .text-2xl{font-size:1.5rem;line-height:2rem}
+    .text-3xl{font-size:1.875rem;line-height:2.25rem}
+    .text-4xl{font-size:2.25rem;line-height:2.5rem}
+    .text-6xl{font-size:3.75rem;line-height:1}
+    .text-hero{font-size:clamp(1.375rem,5vw,2.875rem)}
+
+    /* ── FONT WEIGHTS ── */
+    .font-semibold{font-weight:600}
+    .font-bold{font-weight:700}
+    .font-extrabold{font-weight:800}
+    .font-black{font-weight:900}
+    .font-medium{font-weight:500}
+
+    /* ── SPECIAL COMPONENTS ── */
+    .glass-panel{
+      background:rgba(22,22,28,.7);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      border:1px solid rgba(234,179,8,.1)
+    }
+
+    /* border styles */
+    .border-gold-20{border:1px solid rgba(234,179,8,.2)}
+    .border-red-60{border:3px solid rgba(239,68,68,.6)}
+    .border-red-40{border:3px solid rgba(239,68,68,.4)}
+    .border-gold-shadow{box-shadow:0 0 50px rgba(234,179,8,.1)}
+    .border-green-shadow{box-shadow:0 0 15px rgba(82,163,33,.3)}
+    .border-gold-glow{box-shadow:0 0 15px rgba(234,179,8,.3)}
+
+    /* CTA button */
+    .btn-green{
+      background:#52A321;color:#fff;font-weight:900;text-transform:uppercase;
+      border-radius:.25rem;box-shadow:0 4px 0 #387A13;
+      letter-spacing:.05em;display:inline-block;text-align:center;
+      transition:transform .1s ease,box-shadow .1s ease
+    }
+    .btn-green:active{transform:translateY(4px);box-shadow:none}
+
+    /* Hover border gold */
+    .hover-gold:hover{border-color:rgba(234,179,8,.3)}
+    .hover-gold-50:hover{border-color:rgba(234,179,8,.5)}
+
+    /* Form inputs */
+    .form-input{
+      width:100%;background:#0A0A0C;border:1px solid #24242D;color:#F3F4F6;
+      padding:.875rem;font-size:.875rem;border-radius:.25rem;outline:none;
+      transition:border-color .2s ease;font-family:inherit
+    }
+    .form-input:focus{border-color:#EAB308}
+    .form-input.error{border-color:#EF4444}
+
+    /* Ping animation for live dot */
+    @keyframes ping{75%,100%{transform:scale(2);opacity:0}}
+    .animate-ping{animation:ping 1s cubic-bezier(0,0,.2,1) infinite}
+
+    /* AOS-replacement: fade-up, fade-down, zoom-in */
+    .aos{opacity:0;transition:opacity .7s ease,transform .7s ease}
+    .aos.fade-up{transform:translateY(24px)}
+    .aos.fade-down{transform:translateY(-24px)}
+    .aos.zoom-in{transform:scale(.95)}
+    .aos.visible{opacity:1;transform:none}
+
+    /* Decorative glow blob */
+    .glow-blob{
+      position:absolute;top:50%;left:50%;
+      width:400px;height:400px;background:#EAB308;
+      border-radius:50%;filter:blur(140px);opacity:.1;
+      pointer-events:none;z-index:0;
+      transform:translate(-50%,-50%)
+    }
+    .mini-glow{
+      position:absolute;right:-3rem;top:-3rem;
+      width:7rem;height:7rem;background:rgba(234,179,8,.05);
+      border-radius:50%;filter:blur(40px);pointer-events:none
+    }
+
+    /* Dot grid bg */
+    .dot-grid{
+      position:absolute;inset:0;
+      background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);
+      background-size:20px 20px;opacity:.5;z-index:0
+    }
+
+    /* Grid divider */
+    .grid-divider{
+      display:none;
+      position:absolute;left:50%;top:0;bottom:0;
+      width:1px;background:rgba(31,41,55,.8);
+      transform:translateX(-50%)
+    }
+
+    /* Marker color for list */
+    .marker-red{--list-marker:#EF4444}
+    .marker-red li::marker{color:#EF4444}
+
+    /* ── RESPONSIVE ── */
+    @media(min-width:375px){
+      .min375\:text-xl{font-size:1.5rem}
+    }
+    @media(min-width:640px){
+      .sm\:text-\[13px\]{font-size:13px}
+      .sm\:text-\[38px\]{font-size:38px;line-height:1.15}
+      .sm\:text-lg{font-size:1.125rem;line-height:1.75rem}
+      .sm\:text-xl{font-size:1.25rem}
+      .sm\:text-xs{font-size:.75rem}
+      .sm\:max-w-\[380px\]{max-width:380px}
+      .sm\:py-4{padding-top:1rem;padding-bottom:1rem}
+      .sm\:flex-row{flex-direction:row}
+      .sm\:items-end{align-items:flex-end}
+      .sm\:self-auto{align-self:auto}
+      .sm\:gap-4{gap:1rem}
+      .sm\:col-span-2{grid-column:span 2}
+      .sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .container{max-width:640px}
+    }
+    @media(min-width:768px){
+      .md\:text-\[13px\]{font-size:13px}
+      .md\:text-\[15px\]{font-size:15px}
+      .md\:text-\[46px\]{font-size:46px;line-height:1.15}
+      .md\:text-sm{font-size:.875rem;line-height:1.25rem}
+      .md\:text-base{font-size:1rem;line-height:1.5rem}
+      .md\:text-lg{font-size:1.125rem;line-height:1.75rem}
+      .md\:text-xl{font-size:1.25rem;line-height:1.75rem}
+      .md\:text-2xl{font-size:1.5rem;line-height:2rem}
+      .md\:text-3xl{font-size:1.875rem;line-height:2.25rem}
+      .md\:text-4xl{font-size:2.25rem;line-height:2.5rem}
+      .md\:p-6{padding:1.5rem}
+      .md\:p-8{padding:2rem}
+      .md\:p-10{padding:2.5rem}
+      .md\:p-12{padding:3rem}
+      .md\:py-4{padding-top:1rem;padding-bottom:1rem}
+      .md\:py-24{padding-top:6rem;padding-bottom:6rem}
+      .md\:gap-6{gap:1.5rem}
+      .md\:gap-12{gap:3rem}
+      .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .md\:block{display:block}
+      .md\:hidden{display:none}
+      .md\:mt-0{margin-top:0}
+      .grid-divider{display:block}
+      .container{max-width:768px}
+    }
+    @media(min-width:1024px){
+      .container{max-width:1024px}
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1534330604874384');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1534330604874384&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body><!-- Top Announcement Bar -->
+<div style="background:#111115;color:#EAB308;text-align:center;padding:.5rem .75rem;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;width:100%;position:relative;z-index:50;border-bottom:1px solid rgba(234,179,8,.2);line-height:1.4">
+  1-ON-1 GROWTH AUDIT — ONLY <span class="slot-count">3</span> SLOTS AVAILABLE
+</div>
+
+<!-- ═══ HERO ═══ -->
+<header style="background:#0A0A0C;color:#fff;border-bottom:1px solid #24242D;overflow:hidden;padding-top:.5rem;padding-bottom:1rem;position:relative">
+
+  <div class="dot-grid"></div>
+  <div class="glow-blob"></div>
+
+  <div class="container mx-auto px-4 relative z-20 text-center max-w-3xl">
+
+    <!-- Scarcity Badge -->
+    <div class="aos fade-down inline-block bg-[#EAB308] text-white px-4 py-2 font-black text-[11px] sm:text-[13px] tracking-widest uppercase mb-3 rounded-sm">
+      ONLY <span class="slot-count text-white">3</span> AUDIT SLOTS AVAILABLE
+    </div>
+
+    <!-- Headline -->
+    <h1
+      class="aos fade-up font-sans font-black leading-[1.05] text-white uppercase tracking-tight mb-3 text-hero"
+      style="font-size:clamp(1.375rem,5vw,2.875rem)">
+      GET PREMIUM BRIDES &
+      <span style="color:#52A321;">EARN 1.5 LAKHS / MONTH</span>
+    </h1>
+
+    <!-- Sub-headline -->
+    <div class="aos fade-up flex justify-center mb-2">
+      <div class="text-center text-gray-300 font-bold text-sm bg-[#121216] border border-[#24242D] px-4 py-3 rounded-full max-w-[92%]">
+        WITHOUT A BIG BRAND NAME, HUGE FOLLOWERS, OR FANCY STUDIO
+      </div>
+    </div>
+
+    <!-- Focus Card -->
+    <div
+      class="aos fade-up glass-panel border-gold-20 rounded-xl p-4 max-w-xl mx-auto mb-4 text-left relative overflow-hidden shadow-2xl"
+      style="--aos-delay:150ms;background:rgba(22,22,28,.8)">
+
+      <div class="mini-glow"></div>
+
+      <!-- Header -->
+      <div class="flex items-center gap-2 mb-2 pb-2" style="border-bottom:1px solid #24242D">
+        <span class="relative flex" style="width:.625rem;height:.625rem">
+          <span class="animate-ping absolute inline-flex w-full h-full rounded-full"
+                style="background:#34d399;opacity:.75"></span>
+          <span class="relative inline-flex rounded-full w-full h-full"
+                style="background:#10b981"></span>
+        </span>
+
+        <h2 class="font-sans text-xs font-black tracking-widest text-[#EAB308] uppercase">
+          OUR 4-STEP GROWTH PROCESS
+        </h2>
+      </div>
+
+      <!-- Steps -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <div class="flex items-start">
+          <span class="text-[#52A321] font-black mr-2.5 text-base shrink-0 leading-none">✓</span>
+          <p class="text-white font-black text-sm uppercase tracking-wide leading-tight">
+            1. AUDIT<br>
+            <span class="text-gray-300 normal-case font-medium">
+              Map Your Growth Potential<br>
+              (₹499 Growth Audit Session)
+            </span>
+          </p>
+        </div>
+
+        <div class="flex items-start">
+          <span class="text-[#52A321] font-black mr-2.5 text-base shrink-0 leading-none">✓</span>
+          <p class="text-white font-black text-sm uppercase tracking-wide leading-tight">
+            2. STRATEGY<br>
+            <span class="text-gray-300 normal-case font-medium">
+              Build Your Growth Roadmap
+            </span>
+          </p>
+        </div>
+
+        <div class="flex items-start">
+          <span class="text-[#52A321] font-black mr-2.5 text-base shrink-0 leading-none">✓</span>
+          <p class="text-white font-black text-sm uppercase tracking-wide leading-tight">
+            3. IMPLEMENTATION<br>
+            <span class="text-gray-300 normal-case font-medium">
+              Deploy The Systems
+            </span>
+          </p>
+        </div>
+
+        <div class="flex items-start">
+          <span class="text-[#52A321] font-black mr-2.5 text-base shrink-0 leading-none">✓</span>
+          <p class="text-white font-black text-sm uppercase tracking-wide leading-tight">
+            4. RESULTS<br>
+            <span class="text-gray-300">
+              GET PREMIUM BRIDES & <br>
+              <span class="text-[#52A321] font-bold">
+                EARN 1.5 LAKHS / MONTH
+              </span>
+            </span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Price -->
+    <div class="text-center mb-2">
+      <p class="text-[#EAB308] font-black text-lg tracking-wide">
+        ₹499 Growth Audit Session
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="aos zoom-in flex flex-col items-center w-full px-1 mb-1">
+
+      <a href="#booking-form"
+         class="block w-full py-4 text-lg font-black text-center text-white rounded-xl shadow-xl transition-all duration-300 hover:scale-105"
+         style="
+           max-width:340px;
+           font-size:18px;
+           background:linear-gradient(135deg,#52A321,#6BCB2C);
+           box-shadow:0 8px 24px rgba(82,163,33,.35);
+         ">
+        BOOK YOUR SLOT
+      </a>
+
+      <p class="mt-1 text-[11px] text-gray-400 font-bold leading-tight">
+        (Only 3 slots available)
+      </p>
+
+    </div>
+
+  </div>
+</header>
+<!-- ═══ PROBLEMS ═══ -->
+<section class="py-10 bg-[#0F0F12]" id="problems">
+  <div class="container mx-auto px-4 max-w-4xl">
+
+    <div class="aos fade-up bg-[#16161C] border border-[#24242D] p-5 md:p-8 shadow-2xl">
+
+      <h2 class="font-sans text-2xl md:text-4xl font-black uppercase text-white leading-[1.1] mb-4 tracking-tight">
+        WHY MOST SKILLED MAKEUP ARTISTS STAY STUCK
+      </h2>
+
+      <p class="font-bold text-base text-gray-300 mb-4">
+        Over the last month, we spoke with multiple makeup artists. Most told us the same things:
+      </p>
+
+      <ul class="list-none space-y-2 text-gray-300 mb-6 font-semibold text-sm ml-2">
+        <li class="flex items-start gap-2"><span class="text-[#EF4444] font-black shrink-0">❌</span> "My followers are low."</li>
+        <li class="flex items-start gap-2"><span class="text-[#EF4444] font-black shrink-0">❌</span> "I get enquiries but not bookings."</li>
+        <li class="flex items-start gap-2"><span class="text-[#EF4444] font-black shrink-0">❌</span> "After sending packages, clients stop responding."</li>
+        <li class="flex items-start gap-2"><span class="text-[#EF4444] font-black shrink-0">❌</span> "People compare only on price."</li>
+        <li class="flex items-start gap-2"><span class="text-[#EF4444] font-black shrink-0">❌</span> "Most of my bookings come through coordinators."</li>
+        <li class="flex items-start gap-2"><span class="text-[#EF4444] font-black shrink-0">❌</span> "I know makeup. I don't know marketing."</li>
+      </ul>
+
+      <div class="grid md:grid-cols-2 gap-3 md:gap-4">
+
+        <div class="border border-[#24242D] p-4 bg-[#0A0A0C] hover-gold transition-all">
+          <h3 class="text-[#EF4444] font-black text-sm uppercase mb-1 tracking-wide flex items-center gap-2">
+            <span style="width:.375rem;height:.375rem;background:#EF4444;border-radius:50%;display:inline-block;flex-shrink:0"></span>
+            CLIENTS GHOST AFTER PACKAGES
+          </h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Clients love your work, ask for package details — then go completely silent the moment you send your rate card.
+          </p>
+        </div>
+
+        <div class="border border-[#24242D] p-4 bg-[#0A0A0C] hover-gold transition-all">
+          <h3 class="text-[#EF4444] font-black text-sm uppercase mb-1 tracking-wide flex items-center gap-2">
+            <span style="width:.375rem;height:.375rem;background:#EF4444;border-radius:50%;display:inline-block;flex-shrink:0"></span>
+            COORDINATORS TAKE YOUR SHARE
+          </h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            You do work worth ₹50,000 but after coordinators and bridal pages take their cut, you receive only ₹10,000–₹20,000.
+          </p>
+        </div>
+
+        <div class="border border-[#24242D] p-4 bg-[#0A0A0C] hover-gold transition-all">
+          <h3 class="text-[#EF4444] font-black text-sm uppercase mb-1 tracking-wide flex items-center gap-2">
+            <span style="width:.375rem;height:.375rem;background:#EF4444;border-radius:50%;display:inline-block;flex-shrink:0"></span>
+            PRICE-ONLY COMPARISONS
+          </h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Your inbox is flooded with clients who compare your premium service against amateur artists with no positioning system.
+          </p>
+        </div>
+
+        <div class="border border-[#24242D] p-4 bg-[#0A0A0C] hover-gold transition-all">
+          <h3 class="text-[#EF4444] font-black text-sm uppercase mb-1 tracking-wide flex items-center gap-2">
+            <span style="width:.375rem;height:.375rem;background:#EF4444;border-radius:50%;display:inline-block;flex-shrink:0"></span>
+            NO DIRECT BOOKING SYSTEM
+          </h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Without a direct client acquisition system, you're fully dependent on referrals, coordinators, and bridal pages to survive.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REAL PROBLEM ═══ -->
+<section class="py-10 bg-[#0A0A0C]" id="real-problem">
+
+  <div class="container mx-auto px-4 max-w-4xl text-center">
+
+    <div class="aos fade-up inline-block bg-[#EAB308] px-5 py-2 mb-2">
+      <h2 class="font-sans text-xl md:text-3xl font-black text-black uppercase tracking-wider leading-none">
+        THE REAL ROOT PROBLEM?
+      </h2>
+    </div>
+
+    <h3 class="aos fade-up font-serif text-xl md:text-3xl font-black text-white leading-tight mb-2 px-2">
+      Your Business Doesn't Have a Skill Problem...<br>
+      It Has a Client Acquisition Problem.
+    </h3>
+
+    <p class="aos fade-up text-sm text-gray-300 mb-5 font-semibold max-w-2xl mx-auto">
+      High-paying clients are actively looking for skilled makeup artists. The breakdown is happening inside your offer, positioning, and sales process — not your craft.
+    </p>
+
+    <div class="aos zoom-in bg-[#1F1212] border-red-60 p-5 md:p-8 max-w-3xl mx-auto text-center shadow-2xl">
+
+      <h4 class="font-sans text-lg md:text-2xl font-black text-[#FCA5A5] mb-4 tracking-tight leading-tight uppercase">
+        Because There Is No Direct Client Acquisition System
+      </h4>
+
+      <div class="inline-block text-left mb-4">
+        <ul class="text-xs md:text-base text-gray-200 font-bold space-y-2 list-disc marker-red pl-5">
+          <li class="pl-1">No system to attract high-value clients without middlemen</li>
+          <li class="pl-1">No offer structure that justifies premium pricing to clients</li>
+          <li class="pl-1">No positioning that separates you from cheaper artists</li>
+          <li class="pl-1">No sales process that converts enquiries into confirmed bookings</li>
+        </ul>
+      </div>
+
+      <p class="text-sm md:text-lg font-black text-[#EF4444] uppercase tracking-wide">
+        Thousands of rupees in potential bookings leak out of your business every month.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ═══ 4-WAY AUDIT ═══ -->
+<section class="py-10 bg-[#0F0F12]">
+  <div class="container mx-auto px-4 max-w-4xl text-center">
+
+    <h2 class="aos fade-up font-serif text-xl md:text-3xl font-black uppercase text-white leading-tight tracking-tight mb-2">
+      WHAT HAPPENS DURING THE AUDIT?
+    </h2>
+
+    <p class="aos fade-up text-xs font-bold text-gray-400 mb-5 uppercase tracking-wider max-w-2xl mx-auto">
+      We conduct a complete 4-Way Growth Audit to identify what's preventing your business from growing.
+    </p>
+
+    <a href="#booking-form"
+       class="aos fade-up btn-green w-full px-4 py-3 text-base font-black mb-6 tracking-wide"
+       style="max-width:320px;display:inline-block">
+      BOOK YOUR AUDIT SLOT
+    </a>
+
+    <div class="space-y-3 max-w-3xl mx-auto text-left">
+
+      <!-- 01 -->
+      <div class="aos fade-up border border-[#24242D] p-4 flex items-start gap-3 hover-gold-50 transition-all bg-[#16161C] shadow-lg">
+        <div class="font-black text-black text-lg flex items-center justify-center shrink-0 border-gold-glow rounded-full"
+             style="background:#EAB308;width:2.3rem;height:2.3rem;min-width:2.3rem">
+          01
+        </div>
+        <div>
+          <h4 class="font-black text-white text-base mb-0.5 uppercase tracking-wide">Offer Audit</h4>
+          <p class="text-xs font-semibold text-gray-400 leading-relaxed">
+            We review what you're selling, how your packages are positioned, and why clients compare you with cheaper artists.
+          </p>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="aos fade-up border border-[#24242D] p-4 flex items-start gap-3 hover-gold-50 transition-all bg-[#16161C] shadow-lg">
+        <div class="font-black text-black text-lg flex items-center justify-center shrink-0 border-gold-glow rounded-full"
+             style="background:#EAB308;width:2.3rem;height:2.3rem;min-width:2.3rem">
+          02
+        </div>
+        <div>
+          <h4 class="font-black text-white text-base mb-0.5 uppercase tracking-wide">Positioning Audit</h4>
+          <p class="text-xs font-semibold text-gray-400 leading-relaxed">
+            We review how your profile is perceived, why clients choose competitors, and opportunities to position yourself as premium.
+          </p>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="aos fade-up border border-[#24242D] p-4 flex items-start gap-3 hover-gold-50 transition-all bg-[#16161C] shadow-lg">
+        <div class="font-black text-black text-lg flex items-center justify-center shrink-0 border-gold-glow rounded-full"
+             style="background:#EAB308;width:2.3rem;height:2.3rem;min-width:2.3rem">
+          03
+        </div>
+        <div>
+          <h4 class="font-black text-white text-base mb-0.5 uppercase tracking-wide">Client Acquisition Audit</h4>
+          <p class="text-xs font-semibold text-gray-400 leading-relaxed">
+            We review where your enquiries come from, your lead generation sources, and your dependence on referrals, coordinators, and bridal pages.
+          </p>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="aos fade-up border border-[#24242D] p-4 flex items-start gap-3 hover-gold-50 transition-all bg-[#16161C] shadow-lg">
+        <div class="font-black text-black text-lg flex items-center justify-center shrink-0 border-gold-glow rounded-full"
+             style="background:#EAB308;width:2.3rem;height:2.3rem;min-width:2.3rem">
+          04
+        </div>
+        <div>
+          <h4 class="font-black text-white text-base mb-0.5 uppercase tracking-wide">Sales Process Audit</h4>
+          <p class="text-xs font-semibold text-gray-400 leading-relaxed">
+            We review your enquiry handling process, package presentation, follow-up system, and booking conversion bottlenecks.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- ═══ AFTER AUDIT ═══ -->
+<section class="py-10 bg-[#0F0F12]">
+  <div class="container mx-auto px-4 max-w-3xl">
+
+    <h2 class="aos fade-up font-serif text-2xl md:text-4xl font-black uppercase text-white text-center tracking-tight mb-1">
+      WHAT HAPPENS AFTER THE AUDIT?
+    </h2>
+
+    <p class="aos fade-up text-xs font-bold text-gray-400 mb-3 uppercase tracking-wider text-center">
+      After completing the audit, we'll evaluate your business carefully.
+    </p>
+
+    <div class="aos fade-up space-y-3 mb-4">
+
+      <div class="flex items-start gap-2 pb-3" style="border-bottom:1px dashed #24242D">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="#EAB308" style="margin-top:2px;flex-shrink:0" aria-hidden="true"><path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"/><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z" clip-rule="evenodd"/></svg>
+        <div>
+          <h4 class="font-black text-white text-xs uppercase tracking-wide mb-0.5">We Review Your Skill Level</h4>
+          <p class="text-[11px] text-gray-400 font-semibold">Understand the quality and experience you already bring to clients.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-2 pb-3" style="border-bottom:1px dashed #24242D">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="#EAB308" style="margin-top:2px;flex-shrink:0" aria-hidden="true"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clip-rule="evenodd"/></svg>
+        <div>
+          <h4 class="font-black text-white text-xs uppercase tracking-wide mb-0.5">We Assess Market Demand</h4>
+          <p class="text-[11px] text-gray-400 font-semibold">Evaluate real demand for premium services in your area and niche.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-2 pb-3" style="border-bottom:1px dashed #24242D">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="#EAB308" style="margin-top:2px;flex-shrink:0" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.536-4.464a1 1 0 00-1.414-1.414 4 4 0 01-5.657-5.657 1 1 0 00-1.414-1.414 6 6 0 008.485 8.485z" clip-rule="evenodd"/></svg>
+        <div>
+          <h4 class="font-black text-white text-xs uppercase tracking-wide mb-0.5">We Evaluate Your Positioning</h4>
+          <p class="text-[11px] text-gray-400 font-semibold">Determine whether your brand is set up to attract high-value clients directly.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-2 pb-3" style="border-bottom:1px dashed #24242D">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="#EAB308" style="margin-top:2px;flex-shrink:0" aria-hidden="true"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+        <div>
+          <h4 class="font-black text-white text-xs uppercase tracking-wide mb-0.5">We Map Your Growth Potential</h4>
+          <p class="text-[11px] text-gray-400 font-semibold">Identify whether a clear path exists to reach ₹1.5 Lakhs per month.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Two outcomes -->
+    <div class="aos zoom-in grid md:grid-cols-2 gap-3 mb-6">
+
+      <div class="bg-[#121216] border-2 border-[#52A321] p-4 text-center rounded shadow-2xl">
+        <svg width="32" height="32" viewBox="0 0 20 20" fill="#52A321" style="margin:0 auto 8px" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+        <h3 class="text-white font-black text-sm uppercase tracking-wider mb-1">If We See A Clear Path</h3>
+        <p class="text-gray-400 text-xs font-semibold leading-relaxed">
+          We invite you to work with us to build a direct client acquisition system toward ₹1.5 Lakhs/Month.
+        </p>
+      </div>
+
+      <div class="bg-[#121216] p-4 text-center rounded shadow-2xl" style="border:2px solid rgba(239,68,68,.5)">
+        <svg width="32" height="32" viewBox="0 0 20 20" fill="#EAB308" style="margin:0 auto 8px" aria-hidden="true"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg>
+        <h3 class="text-white font-black text-sm uppercase tracking-wider mb-1">If We Don't See Results</h3>
+        <p class="text-gray-400 text-xs font-semibold leading-relaxed">
+          We won't make an offer. We will give a Blueprint and you can apply in your bussiness. 
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- Why only 3 -->
+<div class="aos zoom-in bg-[#121216] p-5 text-center shadow-2xl max-w-md mx-auto mb-6 rounded" style="border:2px solid #EAB308">
+  <p class="text-gray-400 font-black text-xs uppercase mb-1 tracking-wider">
+    WHY ONLY 3 BUSINESSES?
+  </p>
+
+  <p class="text-gray-300 font-bold text-xs leading-relaxed mt-1 mb-3">
+    We're not interested in working with everyone. Our goal is to help 3 skilled makeup artists build a direct client acquisition system and work toward ₹1.5 Lakhs Per Month. Every business is carefully audited before selection.
+  </p>
+
+  <a href="#booking-form"
+     class="btn-green block w-full px-4 py-3 text-sm font-black tracking-wider">
+    BOOK MY AUDIT SLOT NOW
+  </a>
+</div>
+
+</div>
+</section>
+
+<!-- ═══ BOOKING FORM ═══ -->
+<section class="py-10 bg-[#0A0A0C]" id="booking">
+  <div class="container mx-auto px-4 max-w-2xl">
+
+    <div class="aos fade-up text-center mb-5">
+
+      <div class="inline-block bg-[#EAB308] px-4 py-2 mb-3">
+        <span class="text-black font-black uppercase text-xs tracking-widest">
+          ONLY <span class="slot-count">3</span> SLOTS AVAILABLE
+        </span>
+      </div>
+
+      <h2 class="font-sans text-2xl md:text-4xl font-black uppercase text-white tracking-tight mb-2">
+        BOOK YOUR GROWTH AUDIT
+      </h2>
+
+      <p class="text-gray-400 font-bold text-xs uppercase tracking-wider max-w-xl mx-auto">
+        If you're tired of depending on bridal pages, coordinators and referrals — and want to discover if your business can reach ₹1.5 Lakhs Per Month.
+      </p>
+
+      <p class="text-[10px] text-gray-500 font-bold mt-2 uppercase tracking-wider">
+        THIS IS A DIRECT, LIVE 1-ON-1 SESSION — NOT A GENERIC RECORDED WEBINAR.
+      </p>
+
+    </div>
+
+    <div id="booking-form"
+         class="aos fade-up border-gold-shadow rounded bg-[#121216]"
+         style="border:3px solid #EAB308;padding:1.25rem">
+
+      <div id="form-success-message" class="hidden text-center py-5">
+
+        <svg width="64" height="64" viewBox="0 0 20 20" fill="#52A321"
+             style="margin:0 auto 12px" aria-hidden="true">
+          <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clip-rule="evenodd"/>
+        </svg>
+
+        <h3 class="font-black text-xl text-white uppercase mb-1">
+          Audit Slot Application Received!
+        </h3>
+
+        <p class="text-[#EAB308] font-bold text-xs mb-3 uppercase tracking-wider">
+          Only <span class="slot-count">3</span> Slots Remaining
+        </p>
+
+        <p class="text-gray-300 text-xs max-w-xs mx-auto leading-relaxed">
+          We have successfully locked your registration. Our team will contact you via WhatsApp shortly to coordinate your 1-on-1 Growth Audit.
+        </p>
+
+      </div>
+
+      <div id="form-content">
+
+        <h3 class="font-black text-lg md:text-2xl text-center uppercase text-white mb-1 tracking-tight">
+          RESERVE YOUR AUDIT SLOT
+        </h3>
+
+        <p class="text-center text-xs font-bold text-[#EAB308] mb-5 uppercase tracking-wider">
+          Only for makeup artists serious about growing their business.
+        </p>
+
+        <form class="space-y-3 max-w-md mx-auto"
+              onsubmit="handleFormSubmit(event)"
+              novalidate>
+
+          <div>
+            <label class="block text-[11px] font-black text-gray-400 uppercase tracking-wider mb-1">
+              Full Name *
+            </label>
+
+            <input type="text"
+                   id="field-name"
+                   name="entry.1888426125"
+                   placeholder="Enter your full name"
+                   class="form-input"
+                   required
+                   minlength="2"
+                   autocomplete="name">
+
+            <p id="err-name"
+               class="hidden text-[#EF4444] text-[11px] font-bold mt-1">
+              Enter at least 2 characters
+            </p>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-black text-gray-400 uppercase tracking-wider mb-1">
+              Email *
+            </label>
+
+            <input type="email"
+                   id="field-email"
+                   name="entry.904179170"
+                   placeholder="Enter your email address"
+                   class="form-input"
+                   required
+                   autocomplete="email">
+
+            <p id="err-email"
+               class="hidden text-[#EF4444] text-[11px] font-bold mt-1">
+              Enter a valid email address
+            </p>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-black text-gray-400 uppercase tracking-wider mb-1">
+              WhatsApp Number *
+            </label>
+
+            <input type="tel"
+                   id="field-phone"
+                   name="entry.614718631"
+                   placeholder="Enter 10-digit WhatsApp number"
+                   class="form-input"
+                   required
+                   pattern="[6-9][0-9]{9}"
+                   autocomplete="tel">
+
+            <p id="err-phone"
+               class="hidden text-[#EF4444] text-[11px] font-bold mt-1">
+              Enter valid 10-digit Indian mobile number
+            </p>
+          </div>
+
+   <button type="button"
+        id="payBtn"
+        class="btn-green w-full px-4 py-3 text-sm font-black uppercase tracking-widest mt-4"
+        style="border:none;cursor:pointer">
+  PAY ₹499 & BOOK SLOT
+</button>
+
+          <p class="text-center text-[10px] text-gray-500 font-semibold uppercase mt-2 tracking-wider">
+            SSL Secure · Your data is safe and private
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- ═══ NOTICE ═══ -->
+<section class="py-6 text-center px-4 bg-[#121216]" style="border-top:1px solid #24242D">
+  <h3 class="text-[#EAB308] font-black uppercase text-base tracking-widest mb-2">
+    IMPORTANT REQUIREMENT FOR APPLICANTS
+  </h3>
+
+  <p class="text-gray-300 font-bold text-xs max-w-2xl mx-auto leading-relaxed">
+    This is NOT a course, a theoretical masterclass, or a generic marketing sales pitch. This is a real business audit. You MUST have completed paid client projects and be actively serving clients to qualify for a slot.
+  </p>
+</section>
+
+<!-- ═══ MISSION ═══ -->
+<section class="py-8 text-center px-4 bg-[#0A0A0C]"
+         style="border-top:1px solid #24242D;border-bottom:1px solid #24242D">
+
+  <h3 class="font-serif text-white font-black uppercase text-base tracking-widest mb-2">
+    OUR MISSION IS SIMPLE
+  </h3>
+
+  <p class="text-[#EAB308] font-black text-xs max-w-2xl mx-auto leading-relaxed uppercase tracking-wider">
+    To help 3 skilled makeup artists build a direct client acquisition system and work toward ₹1.5 Lakhs Per Month — without depending on middlemen, coordinators, or bridal pages.
+  </p>
+</section>
+
+<!-- ═══ SCARCITY ═══ -->
+<section class="py-8 text-center px-4 bg-[#0F0F12]"
+         style="border-bottom:1px solid #24242D">
+
+  <div class="max-w-2xl mx-auto">
+
+    <h3 class="text-[#EAB308] font-black uppercase text-lg tracking-widest mb-2">
+      ONLY <span class="slot-count">3</span> AUDIT SLOTS AVAILABLE
+    </h3>
+
+    <p class="text-gray-400 font-medium text-xs mb-4 leading-relaxed">
+      Because every audit is fully customized and live 1-on-1, we only accept
+      <span class="slot-count">3</span> makeup artists at a time. Once slots fill up, registration will close immediately.
+    </p>
+
+    <a href="#booking-form"
+       class="btn-green px-4 py-3 text-xs font-black tracking-wider"
+       style="max-width:280px;display:inline-block;width:100%">
+      LOCK MY SLOT NOW
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="py-10 text-center px-4 bg-[#121216]">
+
+  <div class="max-w-3xl mx-auto">
+
+    <div class="inline-block bg-[#EF4444] px-4 py-2 mb-3">
+      <h3 class="text-white font-black uppercase text-xs tracking-widest">
+        DON'T KEEP LOSING INCOME TO MIDDLEMEN...
+      </h3>
+    </div>
+
+    <p class="text-white font-black text-sm mb-2 uppercase tracking-wide">
+      While other artists build direct booking systems and keep 100% of their earnings.
+    </p>
+
+    <p class="text-gray-400 font-medium text-xs mb-4 leading-relaxed max-w-2xl mx-auto">
+      Take the guesswork out of your growth. Let us show you exactly what's broken in your client acquisition flow and how to fix it — so you can attract high-paying clients directly.
+    </p>
+
+    <a href="#booking-form"
+       class="btn-green px-4 py-3 text-xs font-black tracking-wider"
+       style="max-width:320px;display:inline-block;width:100%">
+      BOOK MY AUDIT NOW
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="py-8 text-center px-4 bg-[#0A0A0C]"
+        style="border-top:1px solid #24242D">
+
+  <div class="container mx-auto max-w-4xl">
+
+    <p class="text-gray-500 text-[10px] font-semibold mb-4 leading-relaxed uppercase tracking-wider">
+      Disclaimer: The results discussed in this audit are not guaranteed. Every makeup artist and studio possesses different portfolios, experience, and local demand parameters. This site is not a part of the Facebook website or Meta Platforms, Inc. Additionally, This site is NOT endorsed by Meta in any way. FACEBOOK and INSTAGRAM are trademarks of META, Inc.
+    </p>
+
+    <div class="flex justify-center flex-wrap gap-2 text-[10px] font-black text-gray-500 uppercase tracking-widest mb-4">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <span>|</span>
+      <a href="terms.html">Terms of Service</a>
+      <span>|</span>
+      <a href="refund-policy.html">Refund Policy</a>
+      <span>|</span>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <p class="text-gray-600 text-[10px] uppercase font-bold tracking-wider">
+      &copy; 2026 PK Adstudio. All rights reserved.
+    </p>
+
+  </div>
+</footer>
+
+  <!-- ═══════════════════════════════════════════
+       ALL JS IS DEFERRED / NON-BLOCKING
+       No external scripts in <head>
+       Google Fonts loaded async after paint
+  ═══════════════════════════════════════════ -->
+  <script>
+    // ── 1. SLOT COUNT (inline, runs immediately) ──
+    (function(){
+      var d=new Date();
+      var seed=d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();
+      var slots=(seed%3)+3;
+      document.querySelectorAll('.slot-count').forEach(function(el){el.textContent=slots});
+    })();
+
+    // ── 2. INTERSECTION OBSERVER ──
+    (function(){
+      if(!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.aos').forEach(function(el){el.classList.add('visible')});
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var delay = e.target.style.getPropertyValue('--aos-delay') || '0ms';
+            setTimeout(function(){ e.target.classList.add('visible'); },parseInt(delay)||0);
+            io.unobserve(e.target);
+          }
+        });
+      },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+      document.querySelectorAll('.aos').forEach(function(el){ io.observe(el); });
+    })();
+
+    // ── PHONE VALIDATOR (handles +91, 91, spaces, hyphens) ──
+    function isValidPhone(input) {
+      var number = input.replace(/[\s\-\.]/g, '');
+      if (number.startsWith('+91')) number = number.slice(3);
+      else if (number.startsWith('91') && number.length === 12) number = number.slice(2);
+      return /^[6-9]\d{9}$/.test(number);
+    }
+    function cleanPhone(input) {
+      var number = input.replace(/[\s\-\.]/g, '');
+      if (number.startsWith('+91')) number = number.slice(3);
+      else if (number.startsWith('91') && number.length === 12) number = number.slice(2);
+      return number;
+    }
+
+    // ── 3. FORM LOGIC ──
+    function showErr(id,show){
+      document.getElementById(id).classList.toggle('hidden',!show);
+      var field=document.getElementById(id.replace('err-','field-'));
+      if(show){ field.classList.add('error'); } else { field.classList.remove('error'); }
+    }
+    function submitToGoogleForms(name,email,phone){
+      var data=new FormData();
+      data.append('entry.1888426125',name);
+      data.append('entry.904179170',email);
+      data.append('entry.614718631',phone);
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSfDextHWGBEvt8eE6mIAwHLuJKpyLxLKsJBZ-Xbfd5MlHr3rw/formResponse',{method:'POST',mode:'no-cors',body:data});
+    }
+    function showSuccess(){
+      document.getElementById('form-content').classList.add('hidden');
+      document.getElementById('form-success-message').classList.remove('hidden');
+    }
+    function handleFormSubmit(event){
+      event.preventDefault();
+      var name=document.getElementById('field-name').value.trim();
+      var email=document.getElementById('field-email').value.trim();
+      var phone=document.getElementById('field-phone').value.trim();
+      var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      var phoneOk=isValidPhone(phone);
+      var nameOk=name.length>=2;
+      showErr('err-name',!nameOk);
+      showErr('err-email',!emailOk);
+      showErr('err-phone',!phoneOk);
+      if(!nameOk||!emailOk||!phoneOk) return;
+      var btn=event.target.querySelector('button[type=submit]');
+      btn.textContent='SUBMITTING...';
+      btn.disabled=true;
+      submitToGoogleForms(name,email,cleanPhone(phone));
+      showSuccess();
+    }
+
+    // ── 4. GOOGLE FONTS ASYNC ──
+    window.addEventListener('load', function(){
+      var l = document.createElement('link');
+      l.rel='stylesheet';
+      l.href='https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Playfair+Display:wght@700;900&display=swap';
+      document.head.appendChild(l);
+    });
+  </script>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+document.getElementById("payBtn").onclick = function () {
+
+    var name = document.getElementById('field-name').value.trim();
+    var email = document.getElementById('field-email').value.trim();
+    var phone = document.getElementById('field-phone').value.trim();
+
+    if(name.length < 2){
+        alert("Enter valid name");
+        return;
+    }
+
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+        alert("Enter valid email");
+        return;
+    }
+
+    if(!isValidPhone(phone)){
+        alert("Enter a valid Indian mobile number (e.g. 9345898327 or +91 93458 98327)");
+        return;
+    }
+
+    var cleanedPhone = cleanPhone(phone);
+
+    var options = {
+        "key": "rzp_live_SurJv43tHdLZeq",
+        "amount": 49900,
+        "currency": "INR",
+        "name": "PK Adstudio",
+        "description": "Growth Audit Session",
+        "handler": function (response) {
+            submitToGoogleForms(name, email, cleanedPhone);
+            alert("Payment Successful");
+            document.getElementById('form-content').classList.add('hidden');
+            document.getElementById('form-success-message').classList.remove('hidden');
+            console.log(response.razorpay_payment_id);
+        },
+        "prefill": {
+            "name": name,
+            "email": email,
+            "contact": cleanedPhone
+        },
+        "theme": {
+            "color": "#52A321"
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+};
+</script>
+</body>
+</html>

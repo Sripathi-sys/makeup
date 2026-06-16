@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | PK Adstudio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            dark: '#0A0A0C',
+                            medium: '#121216',
+                            card: '#16161C',
+                            gold: '#EAB308',
+                            border: '#24242D',
+                            textLight: '#F3F4F6'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0A0A0C; color: #F3F4F6; -webkit-font-smoothing: antialiased; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Top Bar -->
+    <div class="bg-[#111115] border-b border-yellow-500/20 py-3 px-4 text-center">
+        <a href="index.html" class="text-[#EAB308] font-black text-xs uppercase tracking-widest hover:text-white transition-colors">&larr; Back to PK Adstudio</a>
+    </div>
+
+    <main class="container mx-auto px-4 max-w-3xl py-16">
+
+        <div class="text-center mb-12">
+            <h1 class="font-serif text-2xl md:text-4xl font-black text-white uppercase tracking-tight mb-3">Contact Us</h1>
+            <p class="text-gray-400 text-sm font-semibold max-w-md mx-auto">Questions about your booking, refunds, or the session? We respond within 2 business days.</p>
+        </div>
+
+        <!-- Contact Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+
+            <!-- Email -->
+            <div class="border border-[#24242D] bg-[#16161C] p-6 hover:border-[#EAB308]/40 transition-all">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-[#EAB308]/10 border border-[#EAB308]/30 rounded flex items-center justify-center">
+                        <i class="fas fa-envelope text-[#EAB308] text-sm"></i>
+                    </div>
+                    <h3 class="font-black text-white text-xs uppercase tracking-widest">Email</h3>
+                </div>
+                <a href="mailto:prasath.rajasekaran@gmail.com" class="text-[#EAB308] font-bold text-sm hover:underline break-all">prasath.rajasekaran@gmail.com</a>
+                <p class="text-gray-500 text-xs mt-2 font-semibold uppercase tracking-wider">Response within 2 business days</p>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="border border-[#24242D] bg-[#16161C] p-6 hover:border-[#EAB308]/40 transition-all">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-[#52A321]/10 border border-[#52A321]/30 rounded flex items-center justify-center">
+                        <i class="fab fa-whatsapp text-[#52A321] text-sm"></i>
+                    </div>
+                    <h3 class="font-black text-white text-xs uppercase tracking-widest">WhatsApp</h3>
+                </div>
+                <p class="text-gray-300 font-bold text-sm">Session scheduling &amp; coordination via WhatsApp after booking confirmation.</p>
+                <p class="text-gray-500 text-xs mt-2 font-semibold uppercase tracking-wider">We'll reach out to you</p>
+            </div>
+
+        </div>
+
+        <!-- Business Info Block (Razorpay requires visible merchant details) -->
+        <div class="border border-[#24242D] bg-[#16161C] p-6 md:p-8 mb-8">
+            <h2 class="font-black text-[#EAB308] text-xs uppercase tracking-widest mb-5">Business Information</h2>
+            <div class="space-y-3 text-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 border-b border-[#24242D] pb-3">
+                    <span class="text-gray-500 font-black uppercase text-[11px] tracking-wider w-32 shrink-0">Business Name</span>
+                    <span class="text-white font-bold">PK Adstudio</span>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 border-b border-[#24242D] pb-3">
+                    <span class="text-gray-500 font-black uppercase text-[11px] tracking-wider w-32 shrink-0">Service</span>
+                    <span class="text-white font-bold">Bridal Business Strategy Consulting</span>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 border-b border-[#24242D] pb-3">
+                    <span class="text-gray-500 font-black uppercase text-[11px] tracking-wider w-32 shrink-0">Location</span>
+                    <span class="text-white font-bold">Tamil Nadu, India</span>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 border-b border-[#24242D] pb-3">
+                    <span class="text-gray-500 font-black uppercase text-[11px] tracking-wider w-32 shrink-0">Email</span>
+                    <a href="mailto:prasath.rajasekaran@gmail.com" class="text-[#EAB308] font-bold hover:underline">prasath.rajasekaran@gmail.com</a>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                    <span class="text-gray-500 font-black uppercase text-[11px] tracking-wider w-32 shrink-0">Payment</span>
+                    <span class="text-white font-bold">Secured by Razorpay</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refund query note -->
+        <div class="bg-[#1C1212] border border-[#EF4444]/30 p-5 text-sm">
+            <p class="text-gray-300 font-semibold"><strong class="text-[#EF4444]">For refund requests:</strong> Email us with subject line <span class="text-white font-black">"Refund Request — [Your Name] — [Order ID]"</span>. See our <a href="refund-policy.html" class="text-[#EAB308] hover:underline">Refund Policy</a> for full details.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A0A0C] py-8 text-center px-4 border-t border-[#24242D]">
+        <div class="flex justify-center gap-4 text-[10px] font-black text-gray-500 uppercase tracking-widest">
+            <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+            <span>|</span>
+            <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+            <span>|</span>
+            <a href="refund-policy.html" class="hover:text-white transition-colors">Refund Policy</a>
+            <span>|</span>
+            <a href="contact.html" class="text-[#EAB308]">Contact</a>
+        </div>
+        <p class="text-gray-600 text-[10px] uppercase font-bold tracking-wider mt-4">&copy; 2026 PK Adstudio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
