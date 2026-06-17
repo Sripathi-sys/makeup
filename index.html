@@ -1090,38 +1090,22 @@ fbq('track', 'PageView');
       document.getElementById('form-content').classList.add('hidden');
       document.getElementById('form-success-message').classList.remove('hidden');
     }
-    function handleFormSubmit(event){
-      event.preventDefault();
-      var name=document.getElementById('field-name').value.trim();
-      var email=document.getElementById('field-email').value.trim();
-      var phone=document.getElementById('field-phone').value.trim();
-      var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      var phoneOk=isValidPhone(phone);
-      var nameOk=name.length>=2;
-      showErr('err-name',!nameOk);
-      showErr('err-email',!emailOk);
-      showErr('err-phone',!phoneOk);
-      
-      // If validation fails, stop execution here
-      if(!nameOk||!emailOk||!phoneOk) return;
-      
-      // ── META PIXEL LEAD TRACKING ──
-      // This sends the conversion action back to the pixel setup in your head tags
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', {
-          content_name: 'Growth Audit Registration',
-          value: 499.00,
-          currency: 'INR'
-        });
-      }
+  function handleFormSubmit(event){
+    event.preventDefault();
+    var name  = document.getElementById('field-name').value.trim();
+    var email = document.getElementById('field-email').value.trim();
+    var phone = document.getElementById('field-phone').value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    var phoneOk = isValidPhone(phone);
+    var nameOk  = name.length >= 2;
+    showErr('err-name',  !nameOk);
+    showErr('err-email', !emailOk);
+    showErr('err-phone', !phoneOk);
+    if (!nameOk || !emailOk || !phoneOk) return;
 
-      var btn=event.target.querySelector('button[type=submit]');
-      btn.textContent='SUBMITTING...';
-      btn.disabled=true;
-      submitToGoogleForms(name,email,cleanPhone(phone));
-      showSuccess();
-    }
-
+    // Validation passed — hand off to payment button
+    document.getElementById('payBtn').click();
+}
     // ── 4. GOOGLE FONTS ASYNC ──
     window.addEventListener('load', function(){
       var l = document.createElement('link');
@@ -1132,28 +1116,30 @@ fbq('track', 'PageView');
   </script>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
 <script>
 document.getElementById("payBtn").onclick = function () {
 
-    var name = document.getElementById('field-name').value.trim();
+    var name  = document.getElementById('field-name').value.trim();
     var email = document.getElementById('field-email').value.trim();
     var phone = document.getElementById('field-phone').value.trim();
 
-    if(name.length < 2){
-        alert("Enter valid name");
+    if (name.length < 2) {
+        showErr('err-name', true);
         return;
     }
+    showErr('err-name', false);
 
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-        alert("Enter valid email");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showErr('err-email', true);
         return;
     }
+    showErr('err-email', false);
 
-    if(!isValidPhone(phone)){
-        alert("Enter a valid Indian mobile number (e.g. 9345898327 or +91 93458 98327)");
+    if (!isValidPhone(phone)) {
+        showErr('err-phone', true);
         return;
     }
+    showErr('err-phone', false);
 
     var cleanedPhone = cleanPhone(phone);
 
@@ -1163,10 +1149,12 @@ document.getElementById("payBtn").onclick = function () {
         "currency": "INR",
         "name": "PK Adstudio",
         "description": "Growth Audit Session",
-   "handler": function (response) {
-    submitToGoogleForms(name, email, cleanedPhone);
-   window.location.href = "thankyou.html#paid";
-},
+        "handler": function (response) {
+            submitToGoogleForms(name, email, cleanedPhone);
+            // ── No Purchase pixel here ──
+            // Purchase fires on thankyou.html after page loads
+            window.location.href = "thankyou.html#paid";
+        },
         "prefill": {
             "name": name,
             "email": email,
@@ -1174,14 +1162,30 @@ document.getElementById("payBtn").onclick = function () {
         },
         "theme": {
             "color": "#52A321"
+        },
+        "modal": {
+            "ondismiss": function () {
+                document.getElementById('payBtn').textContent = 'PAY ₹499 & BOOK SLOT';
+                document.getElementById('payBtn').disabled = false;
+            }
         }
     };
-var rzp = new Razorpay(options);
 
-    fbq('track', 'InitiateCheckout', {
-        currency: 'INR',
-        value: 499
+    var rzp = new Razorpay(options);
+
+    rzp.on('payment.failed', function () {
+        alert('Payment failed. Please try again.');
+        document.getElementById('payBtn').textContent = 'PAY ₹499 & BOOK SLOT';
+        document.getElementById('payBtn').disabled = false;
     });
+
+    // InitiateCheckout fires just before modal opens
+    if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+            value: 499.00,
+            currency: 'INR'
+        });
+    }
 
     rzp.open();
 };
