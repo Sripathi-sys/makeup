@@ -425,7 +425,7 @@ fbq('track', 'PageView');
             1. AUDIT<br>
             <span class="text-gray-300 normal-case font-medium">
               Map Your Growth Potential<br>
-              (₹499 Growth Audit Session)
+              (₹99 Growth Audit Session)
             </span>
           </p>
         </div>
@@ -469,7 +469,7 @@ fbq('track', 'PageView');
     <!-- Price -->
     <div class="text-center mb-2">
       <p class="text-[#EAB308] font-black text-lg tracking-wide">
-        ₹499 Growth Audit Session
+        ₹99 Growth Audit Session
       </p>
     </div>
 
@@ -910,7 +910,7 @@ fbq('track', 'PageView');
         id="payBtn"
         class="btn-green w-full px-4 py-3 text-sm font-black uppercase tracking-widest mt-4"
         style="border:none;cursor:pointer">
-  PAY ₹499 & BOOK SLOT
+  PAY ₹99 & BOOK SLOT
 </button>
 
           <p class="text-center text-[10px] text-gray-500 font-semibold uppercase mt-2 tracking-wider">
@@ -1145,7 +1145,7 @@ document.getElementById("payBtn").onclick = function () {
 
     var options = {
         "key": "rzp_live_SurJv43tHdLZeq",
-        "amount": 49900,
+        "amount":9900,
         "currency": "INR",
         "name": "PK Adstudio",
         "description": "Growth Audit Session",
@@ -1165,7 +1165,7 @@ document.getElementById("payBtn").onclick = function () {
         },
         "modal": {
             "ondismiss": function () {
-                document.getElementById('payBtn').textContent = 'PAY ₹499 & BOOK SLOT';
+                document.getElementById('payBtn').textContent = 'PAY ₹99 & BOOK SLOT';
                 document.getElementById('payBtn').disabled = false;
             }
         }
@@ -1175,14 +1175,14 @@ document.getElementById("payBtn").onclick = function () {
 
     rzp.on('payment.failed', function () {
         alert('Payment failed. Please try again.');
-        document.getElementById('payBtn').textContent = 'PAY ₹499 & BOOK SLOT';
+        document.getElementById('payBtn').textContent = 'PAY ₹99 & BOOK SLOT';
         document.getElementById('payBtn').disabled = false;
     });
 
     // InitiateCheckout fires just before modal opens
     if (typeof fbq === 'function') {
         fbq('track', 'InitiateCheckout', {
-            value: 499.00,
+            value: 99.00,
             currency: 'INR'
         });
     }
